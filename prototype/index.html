@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>slice · Privacy & Consent Centre</title>
+  <meta name="description" content="slice DPDP Act 2023 compliant privacy and consent management — PM hiring prototype."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════
+     S1 · SPLASH
+════════════════════════════════════════════ -->
+<div class="screen active" id="s-splash">
+  <div class="splash-wrap">
+    <div class="splash-wordmark">slice</div>
+    <div class="splash-sub">Small Finance Bank</div>
+    <div class="splash-ring-wrap"><div class="splash-ring"></div></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     S2 · CONSENT GATE
+════════════════════════════════════════════ -->
+<div class="screen" id="s-consent">
+  <div class="scroll-area pt-notch">
+
+    <div class="cg-topbar">
+      <div class="cg-logo">
+        <svg width="26" height="26" viewBox="0 0 52 52" fill="none" aria-hidden="true">
+          <rect width="52" height="52" rx="14" fill="#890DBD"/>
+          <path d="M16 26C16 20.477 20.477 16 26 16s10 4.477 10 10" stroke="white" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M16 30c0 5.523 4.477 10 10 10s10-4.477 10-10" stroke="white" stroke-width="3.5" stroke-linecap="round"/>
+          <circle cx="26" cy="26" r="3.5" fill="white"/>
+        </svg>
+        <span class="cg-logo-text">slice</span>
+      </div>
+      <span class="dpdp-chip">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        DPDP 2023
+      </span>
+    </div>
+
+    <div class="cg-hero">
+      <p class="cg-eyebrow">Before you begin</p>
+      <h1 class="cg-title">Your data,<br/>your decision.</h1>
+      <p class="cg-body">slice collects and uses your personal data to deliver financial services. Under India's DPDP Act 2023, you have full control. Choose what you're comfortable with below.</p>
+    </div>
+
+    <div class="cg-list">
+      <!-- Essential -->
+      <div class="c-row essential">
+        <div class="c-icon v-icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="c-text">
+          <p class="c-name">Essential services</p>
+          <p class="c-desc">KYC, account, UPI, bill tracking &amp; security. Always on.</p>
+        </div>
+        <span class="c-req-tag">Required</span>
+      </div>
+      <!-- Analytics -->
+      <div class="c-row">
+        <div class="c-icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <div class="c-text">
+          <p class="c-name">Analytics &amp; performance</p>
+          <p class="c-desc">Crash logs, feature usage to improve the app.</p>
+        </div>
+        <label class="sl-toggle" aria-label="Toggle Analytics">
+          <input type="checkbox" id="tog-analytics" checked/>
+          <span class="sl-track"><span class="sl-thumb"></span></span>
+        </label>
+      </div>
+      <!-- Personalisation -->
+      <div class="c-row">
+        <div class="c-icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <div class="c-text">
+          <p class="c-name">Personalisation</p>
+          <p class="c-desc">Smart insights &amp; a dashboard tailored to your spending.</p>
+        </div>
+        <label class="sl-toggle" aria-label="Toggle Personalisation">
+          <input type="checkbox" id="tog-personal" checked/>
+          <span class="sl-track"><span class="sl-thumb"></span></span>
+        </label>
+      </div>
+      <!-- Marketing -->
+      <div class="c-row">
+        <div class="c-icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+        </div>
+        <div class="c-text">
+          <p class="c-name">Marketing &amp; cashback offers</p>
+          <p class="c-desc">Relevant offers, reward programs &amp; partner promotions.</p>
+        </div>
+        <label class="sl-toggle" aria-label="Toggle Marketing">
+          <input type="checkbox" id="tog-marketing"/>
+          <span class="sl-track"><span class="sl-thumb"></span></span>
+        </label>
+      </div>
+    </div>
+
+    <p class="cg-policy-txt">
+      By continuing you accept our <a href="#" onclick="navigate('s-policy');return false;">Privacy Policy</a> &amp; <a href="#" onclick="navigate('s-policy');return false;">Terms</a>. Consent is recorded with timestamp per DPDP Act §6.
+    </p>
+    <div class="cg-actions">
+      <button class="btn-violet" id="btn-accept" onclick="onConsentAccept()">Save &amp; continue</button>
+      <button class="btn-ghost" onclick="navigate('s-declined')">Decline optional</button>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     S3 · HOME
+════════════════════════════════════════════ -->
+<div class="screen" id="s-home">
+  <div class="status-bar">
+    <span>12:36</span>
+    <div class="sb-right">
+      <svg width="15" height="11" viewBox="0 0 16 12" fill="#1A1A1A" aria-hidden="true"><rect x="0" y="4" width="3" height="8" rx="1"/><rect x="4.5" y="2.5" width="3" height="9.5" rx="1"/><rect x="9" y="0.5" width="3" height="11.5" rx="1"/><rect x="13.5" y="0" width="2.5" height="12" rx="1" opacity=".3"/></svg>
+      <svg width="15" height="11" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2" aria-hidden="true"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9A16 16 0 0 1 22.58 9"/><path d="M10.59 16.42a6 6 0 0 1 2.82 0"/><circle cx="12" cy="20" r="1" fill="#1A1A1A"/></svg>
+      <span>100%</span>
+    </div>
+  </div>
+  <div class="home-topbar">
+    <div class="ht-logo">
+      <svg width="22" height="22" viewBox="0 0 52 52" fill="none" aria-hidden="true"><rect width="52" height="52" rx="14" fill="#890DBD"/><path d="M16 26C16 20.477 20.477 16 26 16s10 4.477 10 10" stroke="white" stroke-width="3.5" stroke-linecap="round"/><path d="M16 30c0 5.523 4.477 10 10 10s10-4.477 10-10" stroke="white" stroke-width="3.5" stroke-linecap="round"/><circle cx="26" cy="26" r="3.5" fill="white"/></svg>
+      <span class="ht-brand">slice</span>
+    </div>
+    <div class="ht-right">
+      <button class="ht-icon" aria-label="Notifications">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+      </button>
+      <button class="ht-avatar" onclick="navigate('s-privacy')" aria-label="Profile">R</button>
+    </div>
+  </div>
+
+  <div class="home-toast" id="home-toast" role="alert" aria-live="polite">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+    Preferences saved — you're in control ✓
+  </div>
+
+  <div class="home-scroll">
+    <div class="home-greet-row">
+      <p class="greet-name">Good afternoon, Rahul 👋</p>
+      <p class="greet-line">Here's your bill summary</p>
+    </div>
+
+    <!-- Bill hero -->
+    <div class="bill-hero">
+      <div class="bh-bg"></div>
+      <div class="bh-noise"></div>
+      <div class="bh-body">
+        <p class="bh-label">Total outstanding</p>
+        <p class="bh-amount">₹12,480</p>
+        <div class="bh-cards">
+          <div class="bh-mini">
+            <p class="bh-mini-bank">HDFC Regalia</p>
+            <p class="bh-mini-amt">₹7,200</p>
+            <div class="bh-mini-bar"><div class="bh-mini-fill" style="width:58%"></div></div>
+          </div>
+          <div class="bh-mini">
+            <p class="bh-mini-bank">ICICI Platinum</p>
+            <p class="bh-mini-amt">₹5,280</p>
+            <div class="bh-mini-bar"><div class="bh-mini-fill" style="width:42%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cashback strip (slice's fire feature) -->
+    <div class="cashback-strip">
+      <div class="cs-left">
+        <span class="cs-flame">🔥</span>
+        <div>
+          <p class="cs-text">Earn up to 3% cashback</p>
+          <p class="cs-sub">On bills paid this month via slice</p>
+        </div>
+      </div>
+      <span class="cs-chip">Claim</span>
+    </div>
+
+    <!-- Privacy Centre promo -->
+    <button class="priv-promo" onclick="navigate('s-privacy')" aria-label="Open Privacy Centre">
+      <div class="pp-icon-box" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div class="pp-text">
+        <p class="pp-title">Privacy Centre</p>
+        <p class="pp-sub">Manage consent · Download · Correct · Erase data</p>
+      </div>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+
+    <!-- Quick actions -->
+    <p class="sec-label">Quick actions</p>
+    <div class="qa-grid">
+      <button class="qa-btn" aria-label="Pay now">
+        <div class="qa-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
+        <span>Pay now</span>
+      </button>
+      <button class="qa-btn" aria-label="Spends">
+        <div class="qa-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <span>Spends</span>
+      </button>
+      <button class="qa-btn" aria-label="Reminders">
+        <div class="qa-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
+        <span>Reminders</span>
+      </button>
+      <button class="qa-btn" onclick="navigate('s-privacy')" aria-label="Privacy">
+        <div class="qa-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <span>Privacy</span>
+      </button>
+    </div>
+
+    <p class="sec-label">Recent transactions</p>
+    <div class="txn-list">
+      <div class="txn-row">
+        <div class="txn-ico" style="background:#FFF3E0;" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F57C00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg></div>
+        <div class="txn-info"><p class="txn-name">Zomato</p><p class="txn-meta">Jul 4 · HDFC Regalia</p></div>
+        <p class="txn-amt neg">−₹348</p>
+      </div>
+      <div class="txn-row">
+        <div class="txn-ico" style="background:#F3E5F5;" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8E24AA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div>
+        <div class="txn-info"><p class="txn-name">Netflix</p><p class="txn-meta">Jul 3 · ICICI Platinum</p></div>
+        <p class="txn-amt neg">−₹649</p>
+      </div>
+      <div class="txn-row">
+        <div class="txn-ico" style="background:#E8F5E9;" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E7D32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 5 5 12"/></svg></div>
+        <div class="txn-info"><p class="txn-name">Salary</p><p class="txn-meta">Jul 1 · Savings A/C</p></div>
+        <p class="txn-amt pos">+₹65,000</p>
+      </div>
+    </div>
+    <div style="height:80px"></div>
+  </div>
+
+  <nav class="bottom-nav" aria-label="Main navigation">
+    <button class="bn-btn active" aria-label="Home" aria-current="page">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span>Home</span>
+    </button>
+    <button class="bn-btn" aria-label="Cards">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+      <span>Cards</span>
+    </button>
+    <button class="bn-btn" aria-label="Pay">
+      <div class="bn-center-btn" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+      <span>Pay</span>
+    </button>
+    <button class="bn-btn" aria-label="Insights">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+      <span>Insights</span>
+    </button>
+    <button class="bn-btn" aria-label="Profile" onclick="navigate('s-privacy')">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      <span>Profile</span>
+    </button>
+  </nav>
+</div>
+
+<!-- ════════════════════════════════════════
+     S4 · PRIVACY CENTRE
+════════════════════════════════════════════ -->
+<div class="screen" id="s-privacy">
+  <div class="nav-hdr">
+    <button class="nh-back" onclick="navigateBack()" aria-label="Go back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg></button>
+    <h2 class="nh-title">Privacy Centre</h2>
+    <div style="width:36px"></div>
+  </div>
+  <div class="scroll-area">
+
+    <div class="pc-rights-card">
+      <div class="pcr-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <div>
+        <p class="pcr-title">Your DPDP Rights</p>
+        <p class="pcr-desc">Under India's Digital Personal Data Protection Act 2023, you have the right to access, correct, and erase your data — and to withdraw consent at any time.</p>
+      </div>
+    </div>
+
+    <p class="pc-sec-label">Consent</p>
+    <div class="pc-list">
+      <button class="pc-row" onclick="navigate('s-manage-consent')">
+        <div class="pc-row-ico ico-violet" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+        <div class="pc-row-body"><p class="pc-row-title">Manage consent</p><p class="pc-row-sub">Update or withdraw your data preferences</p></div>
+        <div class="pc-right"><span class="active-badge">2 active</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></div>
+      </button>
+      <button class="pc-row" onclick="navigate('s-consent-log')">
+        <div class="pc-row-ico ico-blue" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        <div class="pc-row-body"><p class="pc-row-title">Consent log</p><p class="pc-row-sub">Full timestamped audit trail · DPDP §6 &amp; §7</p></div>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+    </div>
+
+    <p class="pc-sec-label">Data rights</p>
+    <div class="pc-list">
+      <button class="pc-row" onclick="navigate('s-download')">
+        <div class="pc-row-ico ico-green" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
+        <div class="pc-row-body"><p class="pc-row-title">Download my data</p><p class="pc-row-sub">Get a copy of all your personal data · DPDP §11</p></div>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+      <button class="pc-row" onclick="navigate('s-correct')">
+        <div class="pc-row-ico ico-amber" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div>
+        <div class="pc-row-body"><p class="pc-row-title">Correct my data</p><p class="pc-row-sub">Fix inaccurate personal info · DPDP §12</p></div>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+      <button class="pc-row danger" onclick="navigate('s-delete')">
+        <div class="pc-row-ico ico-red" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg></div>
+        <div class="pc-row-body"><p class="pc-row-title">Erase my data</p><p class="pc-row-sub">Delete account and all data · DPDP §13</p></div>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+    </div>
+
+    <p class="pc-sec-label">How slice uses your data</p>
+    <div class="purpose-table">
+      <div class="pt-row"><span class="pt-dot" style="background:#17C964;margin-top:6px"></span><div><p class="pt-title">KYC &amp; account creation</p><p class="pt-desc">Name, DOB, Aadhaar/PAN, biometrics, photo — one-time identity verification per RBI KYC norms.</p></div></div>
+      <div class="pt-row"><span class="pt-dot" style="background:#17C964;margin-top:6px"></span><div><p class="pt-title">UPI &amp; bill tracking</p><p class="pt-desc">Bank details, UPI handles, SMS access (read-only) for transaction sync and due-date reminders.</p></div></div>
+      <div class="pt-row"><span class="pt-dot" style="background:#890DBD;margin-top:6px"></span><div><p class="pt-title">Risk &amp; fraud prevention</p><p class="pt-desc">Device ID, IP, installed-app inventory — used for anomaly detection. Not shared with advertisers.</p></div></div>
+      <div class="pt-row"><span class="pt-dot" style="background:#F4A03E;margin-top:6px"></span><div><p class="pt-title">Spend analytics</p><p class="pt-desc">Usage behaviour, transaction patterns — to personalise your dashboard. Requires Analytics consent.</p></div></div>
+      <div class="pt-row"><span class="pt-dot" style="background:#F4A03E;margin-top:6px"></span><div><p class="pt-title">Personalised offers</p><p class="pt-desc">Financial product recommendations, cashback programs. Requires Marketing consent. Third-party: selected fintech partners with separate consent.</p></div></div>
+    </div>
+
+    <button class="pc-row" style="margin-bottom:20px;" onclick="navigate('s-policy')">
+      <div class="pc-row-ico" style="background:#F4F2EF; border:1px solid #E8E6E1;" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+      <div class="pc-row-body"><p class="pc-row-title">Full Privacy Policy</p><p class="pc-row-sub">Read complete data practices &amp; your DPDP rights</p></div>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+
+    <p class="pc-legal">Data Fiduciary: Finvasia Technologies Pvt. Ltd. (slice Small Finance Bank) · Grievance Officer: privacy@slicebank.in · Response SLA: 90 days (DPDP Rules) · TLS 1.2+ in transit · AES-256 at rest · CERT-In &amp; RBI breach notification · Enforcement: May 2027</p>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     S5 · MANAGE CONSENT
+════════════════════════════════════════════ -->
+<div class="screen" id="s-manage-consent">
+  <div class="nav-hdr">
+    <button class="nh-back" onclick="navigateBack()" aria-label="Go back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg></button>
+    <h2 class="nh-title">Manage Consent</h2>
+    <div style="width:36px"></div>
+  </div>
+  <div class="scroll-area">
+    <p class="mc-intro">Your choices are saved with a timestamp as required by DPDP Act §6. Withdrawal is as easy as granting consent.</p>
+
+    <div class="mc-card">
+      <!-- Analytics -->
+      <div class="mc-item">
+        <div style="flex:1">
+          <p class="mc-item-title">Analytics &amp; Crash Reporting</p>
+          <p class="mc-item-desc">App usage patterns, feature engagement, crash logs. Data is aggregated and anonymised.</p>
+          <p class="mc-item-third">Shared with: Firebase Analytics, Sentry · Retained: 12 months</p>
+          <a class="mc-item-link" onclick="openPurpose('analytics')">Purpose details →</a>
+        </div>
+        <label class="sl-toggle" aria-label="Toggle Analytics">
+          <input type="checkbox" id="mc-tog-analytics" checked/>
+          <span class="sl-track"><span class="sl-thumb"></span></span>
+        </label>
+      </div>
+      <div class="mc-divider"></div>
+      <!-- Personalisation -->
+      <div class="mc-item">
+        <div style="flex:1">
+          <p class="mc-item-title">Personalisation</p>
+          <p class="mc-item-desc">Spending category analysis, smart alerts, custom dashboard. Processed on Slice servers.</p>
+          <p class="mc-item-third">Not shared externally · Retained: account lifetime</p>
+          <a class="mc-item-link" onclick="openPurpose('personalisation')">Purpose details →</a>
+        </div>
+        <label class="sl-toggle" aria-label="Toggle Personalisation">
+          <input type="checkbox" id="mc-tog-personal" checked/>
+          <span class="sl-track"><span class="sl-thumb"></span></span>
+        </label>
+      </div>
+      <div class="mc-divider"></div>
+      <!-- Marketing -->
+      <div class="mc-item">
+        <div style="flex:1">
+          <p class="mc-item-title">Marketing &amp; Cashback Offers</p>
+          <p class="mc-item-desc">Financial product offers, reward programs, push notifications and partner promotions.</p>
+          <p class="mc-item-third">Third-party sharing: selected fintech partners with separate consent · Retained: 24 months</p>
+          <a class="mc-item-link" onclick="openPurpose('marketing')">Purpose details →</a>
+        </div>
+        <label class="sl-toggle" aria-label="Toggle Marketing">
+          <input type="checkbox" id="mc-tog-marketing"/>
+          <span class="sl-track"><span class="sl-thumb"></span></span>
+        </label>
+      </div>
+      <div class="mc-divider"></div>
+      <!-- Essential -->
+      <div class="mc-item dimmed">
+        <div style="flex:1">
+          <p class="mc-item-title">Essential Services <span class="req-tag">Required</span></p>
+          <p class="mc-item-desc">KYC, UPI, bill tracking, fraud prevention, security. Cannot be disabled — necessary to deliver the service under RBI &amp; DPDP §7.</p>
+        </div>
+        <label class="sl-toggle disabled" aria-label="Essential (required)">
+          <input type="checkbox" checked disabled/>
+          <span class="sl-track"><span class="sl-thumb"></span></span>
+        </label>
+      </div>
+    </div>
+
+    <button class="btn-violet" style="margin:20px 0 8px" onclick="onManageConsentSave()">Save preferences</button>
+    <p class="mc-timestamp">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Last saved: Jul 5, 2026 · 12:36 PM IST · Consent ID: SL-2026-07-05-ABCD
+    </p>
+  </div>
+
+  <!-- Purpose detail sheet -->
+  <div class="purpose-overlay" id="purpose-overlay" onclick="closePurpose(event)">
+    <div class="purpose-sheet" id="purpose-sheet">
+      <div class="ps-handle"></div>
+      <h3 class="ps-title" id="ps-title">Purpose Details</h3>
+      <div id="ps-content"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     S6 · CONSENT LOG
+════════════════════════════════════════════ -->
+<div class="screen" id="s-consent-log">
+  <div class="nav-hdr">
+    <button class="nh-back" onclick="navigateBack()" aria-label="Go back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg></button>
+    <h2 class="nh-title">Consent Log</h2>
+    <div style="width:36px"></div>
+  </div>
+  <div class="scroll-area">
+    <p class="mc-intro">Immutable audit trail maintained per DPDP Act §6 &amp; §7. Each entry records what was consented to, when, and under which policy version.</p>
+    <div class="log-tl">
+      <div class="log-entry">
+        <div class="log-dot active"></div>
+        <div class="log-card">
+          <div class="lc-top"><span class="lc-tag granted">Granted</span><span class="lc-time">Jul 5, 2026 · 12:36 PM IST</span></div>
+          <p class="lc-line">Analytics &amp; Performance — <strong>On</strong></p>
+          <p class="lc-line">Personalisation — <strong>On</strong></p>
+          <p class="lc-line">Marketing &amp; Cashback — <strong>Off</strong></p>
+          <p class="lc-id">ID: SL-2026-07-05-ABCD · Policy v2.1 · DPDP §6</p>
+        </div>
+      </div>
+      <div class="log-entry">
+        <div class="log-dot"></div>
+        <div class="log-card">
+          <div class="lc-top"><span class="lc-tag revoked">Revoked</span><span class="lc-time">Mar 12, 2026 · 9:14 AM IST</span></div>
+          <p class="lc-line">Marketing &amp; Cashback — <strong>Off</strong></p>
+          <p class="lc-id">ID: SL-2026-03-12-WXYZ · Policy v2.0</p>
+        </div>
+      </div>
+      <div class="log-entry">
+        <div class="log-dot"></div>
+        <div class="log-card">
+          <div class="lc-top"><span class="lc-tag granted">Granted</span><span class="lc-time">Jan 8, 2026 · 11:02 AM IST</span></div>
+          <p class="lc-line">Analytics &amp; Performance — <strong>On</strong></p>
+          <p class="lc-line">Personalisation — <strong>On</strong></p>
+          <p class="lc-line">Marketing &amp; Cashback — <strong>On</strong></p>
+          <p class="lc-id">ID: SL-2026-01-08-PQRS · Policy v1.0 · First consent</p>
+        </div>
+      </div>
+    </div>
+    <button class="btn-outline" onclick="showToast('Export coming soon')">Export log (PDF)</button>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     S7 · DOWNLOAD DATA
+════════════════════════════════════════════ -->
+<div class="screen" id="s-download">
+  <div class="nav-hdr">
+    <button class="nh-back" onclick="navigateBack()" aria-label="Go back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg></button>
+    <h2 class="nh-title">Download My Data</h2>
+    <div style="width:36px"></div>
+  </div>
+  <div class="scroll-area">
+    <div class="dd-hero">
+      <div class="dd-ring" aria-hidden="true"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#890DBD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
+      <h3 class="dd-title">Your data belongs to you</h3>
+      <p class="dd-desc">Under DPDP Act §11, you can request a copy of all personal data slice holds about you. We'll prepare and deliver it within 72 hours.</p>
+    </div>
+    <div class="dd-card">
+      <p class="dd-card-label">What's included</p>
+      <div class="dd-checks">
+        <div class="dd-check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F9E4F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Profile &amp; KYC identity info</div>
+        <div class="dd-check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F9E4F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Linked cards &amp; transaction history</div>
+        <div class="dd-check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F9E4F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Consent log &amp; audit trail</div>
+        <div class="dd-check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F9E4F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Device &amp; login history</div>
+        <div class="dd-check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F9E4F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Support tickets &amp; communications</div>
+      </div>
+    </div>
+    <div class="dd-card">
+      <p class="dd-card-label">Choose format</p>
+      <div class="fmt-grid">
+        <label class="fmt-opt sel" id="fmt-json" onclick="selectFmt(this)">
+          <input type="radio" name="fmt" value="json" checked/>
+          <span class="fmt-opt-name">JSON</span>
+          <span class="fmt-opt-sub">Machine-readable</span>
+        </label>
+        <label class="fmt-opt" id="fmt-pdf" onclick="selectFmt(this)">
+          <input type="radio" name="fmt" value="pdf"/>
+          <span class="fmt-opt-name">PDF</span>
+          <span class="fmt-opt-sub">Human-readable</span>
+        </label>
+      </div>
+    </div>
+    <button class="btn-violet" onclick="onDataDownload()">Submit data request</button>
+    <p class="dd-note">A secure download link will be sent to r****@gmail.com within 72 hours. Per DPDP Act §11.</p>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     S8 · DELETE CONFIRM
+════════════════════════════════════════════ -->
+<div class="screen" id="s-delete">
+  <div class="nav-hdr">
+    <button class="nh-back" onclick="navigateBack()" aria-label="Go back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg></button>
+    <h2 class="nh-title" style="color:#E53935">Erase My Data</h2>
+    <div style="width:36px"></div>
+  </div>
+  <div class="scroll-area">
+    <div class="del-warn">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E53935" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      <div>
+        <p class="del-warn-title">This action is permanent</p>
+        <p class="del-warn-desc">Erasing your data deletes your slice account and all associated personal information. This cannot be undone.</p>
+      </div>
+    </div>
+    <div class="del-card">
+      <p class="dd-card-label">What gets deleted</p>
+      <div class="del-list">
+        <div class="del-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E53935" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> slice account, KYC &amp; profile data</div>
+        <div class="del-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E53935" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Linked cards &amp; transaction history</div>
+        <div class="del-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E53935" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Spend analytics &amp; personalised insights</div>
+        <div class="del-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E53935" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Consent records (after legal retention period)</div>
+      </div>
+      <p class="del-retain">⚠ Some data will be retained for up to 3 years for regulatory compliance per DPDP Act §8(7), RBI KYC norms, and PMLA requirements — even after account deletion.</p>
+    </div>
+    <div class="del-conf-box">
+      <label class="del-conf-label" for="del-input">Type <strong>DELETE</strong> to confirm erasure</label>
+      <input type="text" id="del-input" class="del-input" placeholder="DELETE" oninput="checkDelete(this)" autocomplete="off" aria-describedby="del-input-help"/>
+      <p id="del-input-help" style="font-size:0.7rem;color:#888;margin-top:6px;">Case-sensitive. This action cannot be reversed.</p>
+    </div>
+    <button class="btn-red" id="btn-delete" disabled onclick="onDelete()">Yes, delete my account</button>
+    <button class="btn-outline" onclick="navigateBack()">Cancel</button>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     S9 · REQUEST DONE
+════════════════════════════════════════════ -->
+<div class="screen" id="s-request-done">
+  <div class="confirm-wrap">
+    <div class="confirm-icon ci-green" aria-hidden="true">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <h2 class="confirm-h">Request submitted!</h2>
+    <p class="confirm-p">We'll send a secure download link to your registered email within 72 hours.</p>
+    <div class="confirm-details">
+      <div class="cd-row"><span class="cd-k">Request ID</span><span class="cd-v">DR-2026-07-05-9843</span></div>
+      <div class="cd-row"><span class="cd-k">Submitted</span><span class="cd-v">Jul 5, 2026 · 12:36 PM</span></div>
+      <div class="cd-row"><span class="cd-k">Expected by</span><span class="cd-v">Jul 8, 2026</span></div>
+      <div class="cd-row"><span class="cd-k">Status</span><span class="cd-v amber">Processing</span></div>
+    </div>
+    <p class="confirm-legal">Per DPDP Act §11, slice commits to responding within 72 hours. Grievance escalation: privacy@slicebank.in.</p>
+    <button class="btn-violet" onclick="navigate('s-home')">Back to home</button>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     S10 · DECLINED
+════════════════════════════════════════════ -->
+<div class="screen" id="s-declined">
+  <div class="confirm-wrap">
+    <div class="confirm-icon ci-plum" aria-hidden="true">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    </div>
+    <h2 class="confirm-h">Essentials only</h2>
+    <p class="confirm-p">You've declined optional consent. slice will only use data strictly required to deliver the service.</p>
+    <div class="decline-features">
+      <div class="df-row"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F9E4F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Bill tracking &amp; payment reminders</div>
+      <div class="df-row"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F9E4F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Secure UPI &amp; account access</div>
+      <div class="df-row off"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#CCC" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Spend analytics (requires Analytics consent)</div>
+      <div class="df-row off"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#CCC" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Cashback &amp; offers (requires Marketing consent)</div>
+    </div>
+    <button class="btn-violet" onclick="navigate('s-home')">Continue with essentials</button>
+    <button class="btn-ghost" onclick="navigate('s-consent')" style="margin-top:8px">Review consent again</button>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     S11 · CORRECT DATA
+════════════════════════════════════════════ -->
+<div class="screen" id="s-correct">
+  <div class="nav-hdr">
+    <button class="nh-back" onclick="navigateBack()" aria-label="Go back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg></button>
+    <h2 class="nh-title">Correct My Data</h2>
+    <div style="width:36px"></div>
+  </div>
+  <div class="scroll-area">
+    <p class="mc-intro">Under DPDP Act §12, you have the right to request correction of inaccurate or misleading personal data. Corrections are reviewed within 30 days.</p>
+    <div class="f-group"><label class="f-label" for="f-name">Full Name</label><input type="text" id="f-name" class="f-input" value="Rahul Sharma"/></div>
+    <div class="f-group"><label class="f-label" for="f-email">Email Address</label><input type="email" id="f-email" class="f-input" value="rahul.sharma@gmail.com"/></div>
+    <div class="f-group"><label class="f-label" for="f-pan">PAN Number</label><input type="text" id="f-pan" class="f-input" value="ABCDE1234F"/></div>
+    <div class="f-group"><label class="f-label" for="f-reason">Reason for correction</label><textarea id="f-reason" class="f-textarea" placeholder="Why does this data need updating?"></textarea></div>
+    <button class="btn-violet" onclick="onCorrectSubmit()">Submit correction request</button>
+    <p class="dd-note">We'll review and respond within 30 days. You'll be notified at your registered email. Per DPDP Act §12.</p>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     S12 · PRIVACY POLICY
+════════════════════════════════════════════ -->
+<div class="screen" id="s-policy">
+  <div class="nav-hdr">
+    <button class="nh-back" onclick="navigateBack()" aria-label="Go back"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg></button>
+    <h2 class="nh-title">Privacy Policy</h2>
+    <div style="width:36px"></div>
+  </div>
+  <div class="scroll-area">
+    <p class="mc-intro">Effective: Nov 13, 2025 · Data Fiduciary: Finvasia Technologies Pvt. Ltd. (slice Small Finance Bank) · DPDP Act 2023 compliant</p>
+
+    <div class="pol-section">
+      <p class="pol-section-title">What data we collect &amp; why</p>
+      <table class="pol-table">
+        <tr><th>Data</th><th>Purpose</th></tr>
+        <tr><td>Name, DOB, Aadhaar/PAN, biometrics, photo</td><td>KYC &amp; account creation (RBI mandate)</td></tr>
+        <tr><td>Bank details, UPI handles, transaction history</td><td>Service delivery, bill tracking</td></tr>
+        <tr><td>SMS access (read-only, no storage)</td><td>UPI registration, transaction sync, fraud prevention</td></tr>
+        <tr><td>Device ID, IP, OS, browser, installed apps</td><td>Fraud &amp; risk detection only — not shared with advertisers</td></tr>
+        <tr><td>Location (pin code / GPS, opt-in)</td><td>Address verification, offer targeting (with consent)</td></tr>
+        <tr><td>Camera / mic (selfie / video KYC only)</td><td>One-time identity verification</td></tr>
+        <tr><td>Contact list</td><td>UPI transaction facilitation &amp; referrals</td></tr>
+        <tr><td>Usage behaviour, spend patterns</td><td>Personalisation &amp; analytics (consent-gated)</td></tr>
+      </table>
+    </div>
+
+    <div class="pol-section">
+      <p class="pol-section-title">Your rights under DPDP Act 2023</p>
+      <p class="pol-p">• <strong>§11 — Access:</strong> Request a copy of all personal data we hold about you (72-hour delivery).</p>
+      <p class="pol-p">• <strong>§12 — Correction:</strong> Request correction of inaccurate or incomplete data (30-day review).</p>
+      <p class="pol-p">• <strong>§13 — Erasure:</strong> Request deletion of your account and personal data.</p>
+      <p class="pol-p">• <strong>§6 — Consent withdrawal:</strong> Withdraw any optional consent at any time via Privacy Centre → Manage Consent. Withdrawal does not affect lawfulness of prior processing.</p>
+      <p class="pol-p">• <strong>Grievance:</strong> Email privacy@slicebank.in. Response within 90 days per DPDP Rules.</p>
+    </div>
+
+    <div class="pol-section">
+      <p class="pol-section-title">Data retention</p>
+      <table class="pol-table">
+        <tr><th>Category</th><th>Retention</th></tr>
+        <tr><td>KYC &amp; identity records</td><td>5 years post account closure (RBI/PMLA)</td></tr>
+        <tr><td>Transaction data</td><td>7 years (RBI records requirement)</td></tr>
+        <tr><td>Analytics data</td><td>12 months (with consent)</td></tr>
+        <tr><td>Marketing data</td><td>24 months (with consent)</td></tr>
+        <tr><td>Consent audit log</td><td>Account lifetime + 3 years</td></tr>
+      </table>
+      <div class="pol-warning">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <span>Even after erasure, certain data must be retained for RBI, PMLA, and CERT-In compliance. This is permitted under DPDP Act §8(7).</span>
+      </div>
+    </div>
+
+    <div class="pol-section">
+      <p class="pol-section-title">Security</p>
+      <p class="pol-p">All data is encrypted in transit (TLS 1.2+) and at rest (AES-256). Breach notification is provided to CERT-In and RBI within required timelines, and to the Data Protection Board per DPDP Act requirements.</p>
+    </div>
+
+    <div class="pol-section">
+      <p class="pol-section-title">Children's data</p>
+      <p class="pol-p">slice does not knowingly collect data from users under 18. Per DPDP Act 2023, verifiable parental consent is required for all minors. If you believe a minor's data has been collected without consent, contact privacy@slicebank.in immediately.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Global toast -->
+<div class="g-toast" id="g-toast" role="alert" aria-live="polite"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
